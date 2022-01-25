@@ -6,10 +6,11 @@ import {
   CardMedia,
   Divider,
   IconButton,
+  Link,
   Stack,
   Typography,
 } from "@mui/material";
-import { FavoriteBorder } from "@mui/icons-material";
+import { FavoriteBorder, Star } from "@mui/icons-material";
 
 const RealEstateCard = () => {
   return (
@@ -17,15 +18,22 @@ const RealEstateCard = () => {
       <CardMedia
         component="img"
         height="194"
-        image="/static/images/cards/paella.jpg"
+        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
         alt="Paella dish"
       />
       <CardContent>
         <Typography variant="h1">Title goes here</Typography>
-        <Typography variant="h2">Location goes here</Typography>
-        <Typography variant="h3">Reviews</Typography>
+        <Typography>Location goes here</Typography>
+        <Typography>
+          <Star /> 3.4 (<Link>38 Reviews</Link>)
+        </Typography>
         <Divider />
-        icons
+        <Stack direction="row" justifyContent="space-between" spacing={2}>
+          <FavoriteBorder />
+          <FavoriteBorder />
+          <FavoriteBorder />
+          <FavoriteBorder />
+        </Stack>
         <Divider />
         <Typography>
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
