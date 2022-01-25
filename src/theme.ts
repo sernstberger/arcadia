@@ -18,6 +18,9 @@ const theme = createTheme({
         root: {
           borderRadius: 50,
         },
+        sizeLarge: {
+          padding: "1rem 2rem",
+        },
       },
       defaultProps: {
         disableElevation: true,

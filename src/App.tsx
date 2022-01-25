@@ -3,6 +3,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
+import RealEstateCard from "./components/RealEstateCard";
 
 const App = () => {
   return (
@@ -11,10 +12,7 @@ const App = () => {
         <Typography variant="h1" gutterBottom>
           Arcadia
         </Typography>
-        <Button variant="contained">Cool</Button>
-        <Button variant="contained" color="secondary">
-          Cool
-        </Button>
+        <RealEstateCard />
       </Box>
     </Container>
   );
