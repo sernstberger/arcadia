@@ -1,6 +1,8 @@
 import {
+  Box,
   Button,
   Card,
+  CardActionArea,
   CardActions,
   CardContent,
   CardMedia,
@@ -10,44 +12,49 @@ import {
   Stack,
   Typography,
 } from "@mui/material";
-import { FavoriteBorder, Star } from "@mui/icons-material";
+import { Favorite, FavoriteBorder, Star } from "@mui/icons-material";
+import { useState } from "react";
+import LabeledIcon from "../LabeledIcon";
 
-const RealEstateCard = () => {
+const RealEstateCard = ({
+  title,
+  description,
+  image,
+  favorite = false,
+}: any) => {
+  const [isFavorite, setFavorite] = useState(favorite);
   return (
     <Card>
-      <CardMedia
-        component="img"
-        height="194"
-        image="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80"
-        alt="Paella dish"
-      />
-      <CardContent>
-        <Typography variant="h1">Title goes here</Typography>
-        <Typography>Location goes here</Typography>
-        <Typography>
-          <Star /> 3.4 (<Link>38 Reviews</Link>)
-        </Typography>
-        <Divider />
-        <Stack direction="row" justifyContent="space-between" spacing={2}>
-          <FavoriteBorder />
-          <FavoriteBorder />
-          <FavoriteBorder />
-          <FavoriteBorder />
-        </Stack>
-        <Divider />
-        <Typography>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
-          explicabo? Ipsam dolorum harum asperiores praesentium quas expedita
-          distinctio at perspiciatis, voluptate saepe vero non temporibus
-          maiores quae consequatur quia quo?
-        </Typography>
-      </CardContent>
+      <CardActionArea>
+        <CardMedia
+          component="img"
+          height="300"
+          image={image}
+          alt="Paella dish"
+        />
+        <CardContent>
+          <Typography variant="h1">{title}</Typography>
+          <Typography>Location goes here</Typography>
+          <Typography sx={{ display: "flex", alignContent: "center" }}>
+            <Star /> 3.4 (38 Reviews)
+          </Typography>
+          <Divider sx={{ marginY: 2 }} />
+          <Stack direction="row" justifyContent="space-around" spacing={2}>
+            <LabeledIcon icon={<FavoriteBorder />} label="House" />
+            <LabeledIcon icon={<FavoriteBorder />} label="House" />
+            <LabeledIcon icon={<FavoriteBorder />} label="House" />
+            <LabeledIcon icon={<FavoriteBorder />} label="House" />
+          </Stack>
+          <Divider sx={{ marginY: 2 }} />
+          <Typography>{description}</Typography>
+        </CardContent>
+      </CardActionArea>
       <CardActions
         sx={{ alignItems: "center", justifyContent: "space-between" }}
       >
         <Button variant="contained">Book now</Button>
-        <IconButton>
-          <FavoriteBorder />
+        <IconButton onClick={() => setFavorite((prevState: any) => !prevState)}>
+          {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
         </IconButton>
         <Typography>$299.00/night</Typography>
       </CardActions>
