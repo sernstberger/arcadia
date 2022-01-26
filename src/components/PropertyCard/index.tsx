@@ -6,9 +6,10 @@ import {
   CardContent,
   CardMedia,
   Divider,
-  IconButton,
   Stack,
   Typography,
+  ToggleButton,
+  IconButton,
 } from "@mui/material";
 import {
   Favorite,
@@ -90,9 +91,18 @@ const PropertyCard = ({
         sx={{ alignItems: "center", justifyContent: "space-between" }}
       >
         <Button variant="contained">Book now</Button>
-        <IconButton onClick={() => setFavorite((prevState: any) => !prevState)}>
+        <IconButton
+          value="check"
+          component={ToggleButton}
+          selected={isFavorite}
+          onChange={() => {
+            setFavorite(!isFavorite);
+          }}
+          data-testid="favorite-button"
+        >
           {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
         </IconButton>
+
         <Typography>
           <strong>{formatter.format(price)}</strong>/night
         </Typography>
