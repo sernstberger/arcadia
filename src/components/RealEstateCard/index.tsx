@@ -24,6 +24,7 @@ import LabeledIcon from "../LabeledIcon";
 
 interface RealEstateCardProps {
   image: string;
+  location: string;
   price: number;
   title: React.ReactNode;
   description?: React.ReactNode;
@@ -34,6 +35,7 @@ const RealEstateCard = ({
   image,
   price,
   title,
+  location,
   description = null,
   favorite = false,
 }: RealEstateCardProps) => {
@@ -58,18 +60,18 @@ const RealEstateCard = ({
         />
         <CardContent>
           <Typography variant="h1">{title}</Typography>
-          <Typography>Location goes here</Typography>
-          <Typography sx={{ display: "flex", alignContent: "center" }}>
+          <Typography variant="subtitle2">{location}</Typography>
+          {/* <Typography sx={{ display: "flex", alignContent: "center" }}>
             <Star /> 3.4 (38 Reviews)
-          </Typography>
-          <Divider sx={{ marginY: 2 }} />
+          </Typography> */}
+          {/* <Divider sx={{ marginY: 2 }} />
           <Stack direction="row" justifyContent="space-around" spacing={2}>
             <LabeledIcon icon={<Home />} label="House" />
-            <LabeledIcon icon={<Bed />} label="Beds" />
-            <LabeledIcon icon={<Bathtub />} label="Baths" />
+            <LabeledIcon icon={<Bed />} label="2 Beds" />
+            <LabeledIcon icon={<Bathtub />} label="2 Baths" />
             <LabeledIcon icon={<DirectionsCar />} label="Garage" />
           </Stack>
-          <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ marginY: 2 }} /> */}
           {description && <Typography>{description}</Typography>}
         </CardContent>
       </CardActionArea>
@@ -80,7 +82,9 @@ const RealEstateCard = ({
         <IconButton onClick={() => setFavorite((prevState: any) => !prevState)}>
           {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
         </IconButton>
-        <Typography>{formatter.format(price)}/night</Typography>
+        <Typography>
+          <strong>{formatter.format(price)}</strong>/night
+        </Typography>
       </CardActions>
     </Card>
   );

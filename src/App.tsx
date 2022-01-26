@@ -14,6 +14,7 @@ const App = () => {
         <RealEstateCard
           price={120000}
           title="Title goes here"
+          location="Indianapolis, IN"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
             explicabo? Ipsam dolorum harum asperiores praesentium quas expedita
             distinctio at perspiciatis, voluptate saepe vero non temporibus
