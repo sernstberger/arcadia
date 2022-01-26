@@ -22,7 +22,7 @@ import {
 import { useState } from "react";
 import LabeledIcon from "../LabeledIcon";
 
-interface PropertyProps {
+export interface PropertyCardProps {
   image: string;
   location: string;
   price: number;
@@ -38,7 +38,7 @@ interface PropertyProps {
   baths?: number;
 }
 
-const Property = ({
+const PropertyCard = ({
   image,
   price,
   title,
@@ -46,10 +46,10 @@ const Property = ({
   rating,
   description = null,
   favorite = false,
-  propertyType = "house",
+  propertyType = "House",
   beds = undefined,
   baths = undefined,
-}: PropertyProps) => {
+}: PropertyCardProps) => {
   const [isFavorite, setFavorite] = useState(favorite);
 
   var formatter = new Intl.NumberFormat("en-US", {
@@ -101,4 +101,4 @@ const Property = ({
   );
 };
 
-export default Property;
+export default PropertyCard;

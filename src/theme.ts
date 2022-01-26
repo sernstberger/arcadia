@@ -13,7 +13,7 @@ const theme = createTheme({
     // },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "Inter, sans-serif",
     h1: {
       fontSize: "3rem",
     },
@@ -46,6 +46,9 @@ const theme = createTheme({
     },
     button: {
       fontSize: "1rem",
+      textTransform: "none",
+      fontWeight: 700,
+      lineHeight: 1.5,
     },
     caption: {
       fontSize: "0.875rem",
@@ -59,6 +62,9 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: 50,
+        },
+        sizeMedium: {
+          padding: "0.5rem 1.5rem",
         },
         sizeLarge: {
           padding: "1rem 2rem",
