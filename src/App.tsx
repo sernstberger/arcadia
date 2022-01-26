@@ -16,6 +16,7 @@ const App = () => {
           propertyType="house"
           beds={3}
           baths={2}
+          rating={{ average: 3.4, numberOfReviews: 38 }}
           title="Title goes here"
           location="Indianapolis, IN"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,

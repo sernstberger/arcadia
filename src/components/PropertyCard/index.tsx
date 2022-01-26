@@ -26,6 +26,10 @@ interface PropertyProps {
   image: string;
   location: string;
   price: number;
+  rating: {
+    average: number;
+    numberOfReviews: number;
+  };
   title: React.ReactNode;
   description?: React.ReactNode;
   favorite?: boolean;
@@ -39,6 +43,7 @@ const Property = ({
   price,
   title,
   location,
+  rating,
   description = null,
   favorite = false,
   propertyType = "house",
@@ -67,9 +72,9 @@ const Property = ({
         <CardContent>
           <Typography variant="h1">{title}</Typography>
           <Typography variant="subtitle2">{location}</Typography>
-          {/* <Typography sx={{ display: "flex", alignContent: "center" }}>
-            <Star /> 3.4 (38 Reviews)
-          </Typography> */}
+          <Typography sx={{ display: "flex", alignContent: "center" }}>
+            <Star /> {rating.average} ({rating.numberOfReviews} Reviews)
+          </Typography>
           <Divider sx={{ marginY: 2 }} />
           <Stack direction="row" justifyContent="space-around" spacing={2}>
             <LabeledIcon icon={<Home />} label={propertyType} />
