@@ -9,6 +9,7 @@ import {
   Stack,
   Typography,
   ToggleButton,
+  IconButton,
 } from "@mui/material";
 import {
   Favorite,
@@ -90,8 +91,9 @@ const PropertyCard = ({
         sx={{ alignItems: "center", justifyContent: "space-between" }}
       >
         <Button variant="contained">Book now</Button>
-        <ToggleButton
+        <IconButton
           value="check"
+          component={ToggleButton}
           selected={isFavorite}
           onChange={() => {
             setFavorite(!isFavorite);
@@ -99,7 +101,7 @@ const PropertyCard = ({
           data-testid="favorite-button"
         >
           {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
-        </ToggleButton>
+        </IconButton>
 
         <Typography>
           <strong>{formatter.format(price)}</strong>/night
