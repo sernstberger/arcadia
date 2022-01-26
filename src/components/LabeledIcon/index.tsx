@@ -1,21 +1,12 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Divider,
-  IconButton,
-  Link,
-  Stack,
-  Typography,
-} from "@mui/material";
-import { Favorite, FavoriteBorder, Star } from "@mui/icons-material";
-import { useState } from "react";
+import { Box, IconProps, Typography } from "@mui/material";
 
-const LabeledIcon = ({ icon, label }: any) => {
+// TODO: May want to improve this interface
+interface LabeledIconProps {
+  icon: IconProps;
+  label: React.ReactNode;
+}
+
+const LabeledIcon = ({ icon, label }: LabeledIconProps) => {
   return (
     <Box
       sx={{

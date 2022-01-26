@@ -1,5 +1,4 @@
 import {
-  Box,
   Button,
   Card,
   CardActionArea,
@@ -8,21 +7,46 @@ import {
   CardMedia,
   Divider,
   IconButton,
-  Link,
   Stack,
   Typography,
 } from "@mui/material";
-import { Favorite, FavoriteBorder, Star } from "@mui/icons-material";
+import {
+  Favorite,
+  FavoriteBorder,
+  Star,
+  Bathtub,
+  Bed,
+  DirectionsCar,
+  Home,
+} from "@mui/icons-material";
 import { useState } from "react";
 import LabeledIcon from "../LabeledIcon";
 
+interface RealEstateCardProps {
+  image: string;
+  price: number;
+  title: React.ReactNode;
+  description?: React.ReactNode;
+  favorite?: boolean;
+}
+
 const RealEstateCard = ({
-  title,
-  description,
   image,
+  price,
+  title,
+  description = null,
   favorite = false,
-}: any) => {
+}: RealEstateCardProps) => {
   const [isFavorite, setFavorite] = useState(favorite);
+
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+
+    //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
+    maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
+  });
+
   return (
     <Card>
       <CardActionArea>
@@ -40,13 +64,13 @@ const RealEstateCard = ({
           </Typography>
           <Divider sx={{ marginY: 2 }} />
           <Stack direction="row" justifyContent="space-around" spacing={2}>
-            <LabeledIcon icon={<FavoriteBorder />} label="House" />
-            <LabeledIcon icon={<FavoriteBorder />} label="House" />
-            <LabeledIcon icon={<FavoriteBorder />} label="House" />
-            <LabeledIcon icon={<FavoriteBorder />} label="House" />
+            <LabeledIcon icon={<Home />} label="House" />
+            <LabeledIcon icon={<Bed />} label="Beds" />
+            <LabeledIcon icon={<Bathtub />} label="Baths" />
+            <LabeledIcon icon={<DirectionsCar />} label="Garage" />
           </Stack>
           <Divider sx={{ marginY: 2 }} />
-          <Typography>{description}</Typography>
+          {description && <Typography>{description}</Typography>}
         </CardContent>
       </CardActionArea>
       <CardActions
@@ -56,7 +80,7 @@ const RealEstateCard = ({
         <IconButton onClick={() => setFavorite((prevState: any) => !prevState)}>
           {isFavorite ? <Favorite color="error" /> : <FavoriteBorder />}
         </IconButton>
-        <Typography>$299.00/night</Typography>
+        <Typography>{formatter.format(price)}/night</Typography>
       </CardActions>
     </Card>
   );

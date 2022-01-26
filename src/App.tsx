@@ -2,7 +2,6 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { Button } from "@mui/material";
 import RealEstateCard from "./components/RealEstateCard";
 
 const App = () => {
@@ -13,6 +12,7 @@ const App = () => {
           Arcadia
         </Typography>
         <RealEstateCard
+          price={120000}
           title="Title goes here"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,
             explicabo? Ipsam dolorum harum asperiores praesentium quas expedita
