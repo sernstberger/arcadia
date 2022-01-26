@@ -2,7 +2,7 @@ import * as React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import RealEstateCard from "./components/RealEstateCard";
+import PropertyCard from "./components/PropertyCard";
 
 const App = () => {
   return (
@@ -11,8 +11,11 @@ const App = () => {
         <Typography variant="h1" gutterBottom>
           Arcadia
         </Typography>
-        <RealEstateCard
+        <PropertyCard
           price={120000}
+          propertyType="house"
+          beds={3}
+          baths={2}
           title="Title goes here"
           location="Indianapolis, IN"
           description="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Placeat,

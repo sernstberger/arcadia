@@ -22,23 +22,29 @@ import {
 import { useState } from "react";
 import LabeledIcon from "../LabeledIcon";
 
-interface RealEstateCardProps {
+interface PropertyProps {
   image: string;
   location: string;
   price: number;
   title: React.ReactNode;
   description?: React.ReactNode;
   favorite?: boolean;
+  propertyType?: string;
+  beds?: number;
+  baths?: number;
 }
 
-const RealEstateCard = ({
+const Property = ({
   image,
   price,
   title,
   location,
   description = null,
   favorite = false,
-}: RealEstateCardProps) => {
+  propertyType = "house",
+  beds = undefined,
+  baths = undefined,
+}: PropertyProps) => {
   const [isFavorite, setFavorite] = useState(favorite);
 
   var formatter = new Intl.NumberFormat("en-US", {
@@ -64,14 +70,14 @@ const RealEstateCard = ({
           {/* <Typography sx={{ display: "flex", alignContent: "center" }}>
             <Star /> 3.4 (38 Reviews)
           </Typography> */}
-          {/* <Divider sx={{ marginY: 2 }} />
+          <Divider sx={{ marginY: 2 }} />
           <Stack direction="row" justifyContent="space-around" spacing={2}>
-            <LabeledIcon icon={<Home />} label="House" />
-            <LabeledIcon icon={<Bed />} label="2 Beds" />
-            <LabeledIcon icon={<Bathtub />} label="2 Baths" />
+            <LabeledIcon icon={<Home />} label={propertyType} />
+            <LabeledIcon icon={<Bed />} label={`${beds} Beds`} />
+            <LabeledIcon icon={<Bathtub />} label={`${baths} Baths`} />
             <LabeledIcon icon={<DirectionsCar />} label="Garage" />
           </Stack>
-          <Divider sx={{ marginY: 2 }} /> */}
+          <Divider sx={{ marginY: 2 }} />
           {description && <Typography>{description}</Typography>}
         </CardContent>
       </CardActionArea>
@@ -90,4 +96,4 @@ const RealEstateCard = ({
   );
 };
 
-export default RealEstateCard;
+export default Property;
