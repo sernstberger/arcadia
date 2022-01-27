@@ -71,9 +71,12 @@ const PropertyCard = ({
           alt="Paella dish"
         />
         <CardContent>
-          <Typography variant="h1">{title}</Typography>
-          <Typography variant="subtitle2">{location}</Typography>
-          <Typography sx={{ display: "flex", alignContent: "center" }}>
+          <Typography variant="subtitle2">{title}</Typography>
+          <Typography>{location}</Typography>
+          <Typography
+            variant="body2"
+            sx={{ display: "flex", alignContent: "center" }}
+          >
             <Star /> {rating.average} ({rating.numberOfReviews} Reviews)
           </Typography>
           <Divider sx={{ marginY: 2 }} />
