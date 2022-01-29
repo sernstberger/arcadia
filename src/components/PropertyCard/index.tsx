@@ -53,22 +53,24 @@ const PropertyCard = ({
 }: PropertyCardProps) => {
   const [isFavorite, setFavorite] = useState(favorite);
 
-  var formatter = new Intl.NumberFormat("en-US", {
+  const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
 
     //minimumFractionDigits: 0, // (this suffices for whole numbers, but will print 2500.10 as $2,500.1)
     maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
-  });
+  }); // TODO Move this to a utility function
+  // TODO Add to storybook
+  // TODO Add test
 
   return (
     <Card>
       <CardActionArea>
         <CardMedia
           component="img"
-          height="300"
-          image={image}
-          alt="Paella dish"
+          height="300" // TODO make this dynamic
+          image={image} // TODO Add carousel (accept an array of images)
+          alt="Paella dish" // TODO Add image alt text
         />
         <CardContent>
           <Typography variant="subtitle2">{title}</Typography>
@@ -77,6 +79,7 @@ const PropertyCard = ({
             variant="body2"
             sx={{ display: "flex", alignContent: "center" }}
           >
+            {/* TODO improve ratings UI */}
             <Star /> {rating.average} ({rating.numberOfReviews} Reviews)
           </Typography>
           <Divider sx={{ marginY: 2 }} />

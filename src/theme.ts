@@ -5,12 +5,6 @@ const theme = createTheme({
     primary: {
       main: "#0073D1",
     },
-    // secondary: {
-    //   main: "#19857b",
-    // },
-    // error: {
-    // main: red.A400,
-    // },
   },
   typography: {
     fontFamily: "Inter, sans-serif",
