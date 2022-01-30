@@ -69,6 +69,11 @@ const theme = createTheme({
         // disableRipple: true,
       },
     },
+    MuiCard: {
+      defaultProps: {
+        elevation: 0,
+      },
+    },
   },
 });
 

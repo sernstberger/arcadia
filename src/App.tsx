@@ -1,7 +1,10 @@
 import * as React from "react";
+import { Link, Outlet } from "react-router-dom";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
+import ListingItem from "./components/ListingItem";
+import { Grid } from "@mui/material";
 
 const App = () => {
   return (
@@ -16,7 +19,9 @@ const App = () => {
         </Typography>
         <ul>
           <li>Twitter</li>
-          <li>Airbnb</li>
+          <li>
+            <Link to="/airbnb">Airbnb</Link>
+          </li>
           <li>Google</li>
           <li>Gmail</li>
           <li>Etsy</li>
@@ -27,6 +32,7 @@ const App = () => {
           <li>Netflix</li>
           <li>Spotify</li>
           <li>Zillow</li>
+          <li>Hulu</li>
         </ul>
         <Typography variant="h2" gutterBottom>
           Technologies
@@ -35,13 +41,15 @@ const App = () => {
           <li>React</li>
           <li>Mui</li>
           <li>Typescript</li>
-          <li>Jest</li>
-          <li>Storybook</li>
-          <li>React Testing Library</li>
+          {/* <li>Jest</li> */}
+          {/* <li>Storybook</li> */}
+          {/* <li>React Testing Library</li> */}
           <li>React Router</li>
-          <li>React Hook Form</li>
+          {/* <li>React Hook Form</li> */}
         </ul>
       </Box>
+
+      <Outlet />
     </Container>
   );
 };
