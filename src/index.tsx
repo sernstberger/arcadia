@@ -6,6 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import theme from "./theme";
 import Airbnb from "./apps/airbnb";
+import Home from "./pages/Home";
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -14,7 +15,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<div>aldskjf</div>} />
+          <Route index element={<Home />} />
           <Route path="airbnb" element={<Airbnb />}>
             {/* <Route path=":teamId" element={<Team />} />
             <Route path="new" element={<NewTeamForm />} />
