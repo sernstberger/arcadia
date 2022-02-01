@@ -13,22 +13,36 @@ const Home = () => {
         tooling.
       </Typography>
       <ul>
-        <li>Twitter</li>
-        <li>
-          <Link to="/airbnb">Airbnb</Link>
-        </li>
-        <li>Google</li>
-        <li>Gmail</li>
-        <li>Etsy</li>
-        <li>Doordash</li>
-        <li>Amazon</li>
-        <li>Facebook</li>
-        <li>Instagram</li>
-        <li>Netflix</li>
-        <li>Spotify</li>
-        <li>Zillow</li>
-        <li>Hulu</li>
-        <li>Wikipedia</li>
+        {[
+          { title: "Airbnb", href: "/airbnb" },
+          // { title: "Twitter", href: "/twitter" },
+          // { title: "GitHub", href: "/github" },
+          // { title: "Slack", href: "/slack" },
+          // { title: "Facebook", href: "/facebook" },
+          // { title: "Instagram", href: "/instagram" },
+          // { title: "Google", href: "/google" },
+          { title: "Youtube", href: "/youtube" },
+          // { title: "Netflix", href: "/netflix" },
+          // { title: "Spotify", href: "/spotify" },
+          // { title: "Amazon", href: "/amazon" },
+          // { title: "Uber", href: "/uber" },
+          // { title: "Netflix", href: "/netflix" },
+          // { title: "Spotify", href: "/spotify" },
+          // { title: "Gmail", href: "/gmail" },
+          // { title: "Etsy", href: "/etsy" },
+          // { title: "Doordash", href: "/doordash" },
+          // { title: "Netflix", href: "/netflix" },
+          // { title: "Zillow", href: "/zillow" },
+          // { title: "Hulu", href: "/hulu" },
+          // { title: "Wikipedia", href: "/wikipedia" },
+          // { title: "Reddit", href: "/reddit" },
+        ].map(({ title, href }) => {
+          return (
+            <li key={title}>
+              <Link to={href}>{title}</Link>
+            </li>
+          );
+        })}
       </ul>
       <Typography variant="h2" gutterBottom>
         Technologies

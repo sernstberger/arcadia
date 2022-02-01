@@ -2,12 +2,15 @@ import React from "react";
 import theme from "../src/theme";
 import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 import { ThemeProvider } from "emotion-theming";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 export const decorators = [
   (Story) => (
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
-        <Story />
+        <BrowserRouter>
+          <Story />
+        </BrowserRouter>
       </ThemeProvider>
     </MuiThemeProvider>
   ),

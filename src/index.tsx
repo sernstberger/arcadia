@@ -7,6 +7,7 @@ import App from "./App";
 import theme from "./theme";
 import Airbnb from "./apps/airbnb";
 import Home from "./pages/Home";
+import Youtube from "./apps/youtube";
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -17,6 +18,11 @@ ReactDOM.render(
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
           <Route path="airbnb" element={<Airbnb />}>
+            {/* <Route path=":teamId" element={<Team />} />
+            <Route path="new" element={<NewTeamForm />} />
+            <Route index element={<LeagueStandings />} /> */}
+          </Route>
+          <Route path="youtube" element={<Youtube />}>
             {/* <Route path=":teamId" element={<Team />} />
             <Route path="new" element={<NewTeamForm />} />
             <Route index element={<LeagueStandings />} /> */}

@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
 import Listings from "../../components/Listings";
 
-const Airbnb = () => {
+const Youtube = () => {
   return (
     <div>
-      <Typography>This looks exactly like Airbnb.</Typography>
+      <Typography>This looks exactly like Youtube.</Typography>
       <Listings
         items={[
           {
@@ -32,6 +32,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -40,6 +41,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -48,6 +50,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -56,6 +59,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -64,6 +68,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -72,6 +77,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -80,6 +86,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -88,6 +95,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -96,6 +104,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -104,6 +113,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -112,6 +122,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -120,6 +131,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
           {
             title: "coooooool",
@@ -128,6 +140,7 @@ const Airbnb = () => {
             emphasis: "ahhhhh",
             details: "tails",
             href: "/",
+            leftAction: "secondary",
           },
         ]}
       />
@@ -135,4 +148,4 @@ const Airbnb = () => {
   );
 };
 
-export default Airbnb;
+export default Youtube;

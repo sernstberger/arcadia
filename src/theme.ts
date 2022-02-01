@@ -50,8 +50,15 @@ const theme = createTheme({
     overline: {
       fontSize: "0.875rem",
     },
+
+    // TODO consider adding card title to typography
   },
   components: {
+    MuiButtonBase: {
+      defaultProps: {
+        disableRipple: true,
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
@@ -72,6 +79,20 @@ const theme = createTheme({
     MuiCard: {
       defaultProps: {
         elevation: 0,
+      },
+    },
+    MuiCardActionArea: {
+      styleOverrides: {
+        focusHighlight: {
+          backgroundColor: "transparent",
+        },
+      },
+    },
+    MuiFab: {
+      styleOverrides: {
+        root: {
+          boxShadow: "none",
+        },
       },
     },
   },
