@@ -8,6 +8,7 @@ import theme from "./theme";
 import RealEstate from "./apps/RealEstate";
 import Home from "./pages/Home";
 import Video from "./apps/Video";
+import Single from "./apps/Video/Single";
 
 ReactDOM.render(
   <ThemeProvider theme={theme}>
@@ -24,7 +25,7 @@ ReactDOM.render(
           </Route>
           {/* <Route path="videos" element={<Video />}> */}
           <Route path="videos">
-            <Route path=":teamId" element={<div>yesss</div>} />
+            <Route path=":id" element={<Single />} />
             {/* <Route path="new" element={<NewTeamForm />} /> */}
             <Route index element={<Video />} />
           </Route>

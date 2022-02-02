@@ -4,8 +4,6 @@ import {
   CardActionArea,
   CardMedia,
   IconButton,
-  Button,
-  Stack,
   Typography,
   Fab,
   CardContent,
@@ -14,21 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import ListingCard from ".";
 import { formatDistanceToNow, parseISO } from "date-fns";
-
-export interface VideoListingCardProps {
-  id: string | number;
-  title: string;
-  subtitle?: React.ReactNode;
-  children?: React.ReactNode;
-  image: string;
-  emphasis?: React.ReactNode;
-  details?: React.ReactNode;
-  leftAction?: any;
-  rightAction?: any;
-  user: { id: string; name: string; avatar: string };
-  views: number;
-  createDate: string;
-}
+import { VideoProps } from "../../apps/Video/types";
 
 const VideoListingCard = ({
   id,
@@ -36,12 +20,9 @@ const VideoListingCard = ({
   details,
   image,
   views,
-  emphasis,
-  children,
-  subtitle = undefined,
   user,
   createDate,
-}: VideoListingCardProps) => {
+}: VideoProps) => {
   console.log("!!!", createDate, typeof createDate);
   return (
     <ListingCard

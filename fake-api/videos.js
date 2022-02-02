@@ -13,6 +13,7 @@ const videos = [...Array(500)].map((_, i) => {
   const createDate = faker.date.past();
   const updateDate = faker.date.recent();
   const views = faker.random.number();
+  const subscribed = faker.random.boolean();
   // const sessionCount = faker.random.number({
   //   min: 0,
   //   max: 5
@@ -27,6 +28,7 @@ const videos = [...Array(500)].map((_, i) => {
     views,
     createDate,
     updateDate,
+    subscribed,
   };
 });
 
