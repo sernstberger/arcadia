@@ -1,12 +1,13 @@
 import { Grid, Pagination } from "@mui/material";
 import { useEffect, useState } from "react";
 import ListingCard, { ListingCardProps } from "../ListingCard";
+import VideoListingCard from "../ListingCard/VideoListingCard";
 
 export interface ListingsProps {
   items: ListingCardProps[];
   listingsPerPage?: number;
 }
-const Listings = ({ items, listingsPerPage = 3 }: ListingsProps) => {
+const Listings = ({ items, listingsPerPage = 24 }: ListingsProps) => {
   const numberOfPages = items.length / listingsPerPage;
   const initialItems = items.slice(0, listingsPerPage);
   const [shownItems, setShownItems] = useState(initialItems);
@@ -25,9 +26,11 @@ const Listings = ({ items, listingsPerPage = 3 }: ListingsProps) => {
     <>
       <Grid container spacing={3}>
         {shownItems.map((listing: any) => {
+          // TODO: fix any type
           return (
             <Grid item xs={12} sm={6} md={4} lg={3} key={listing.title}>
-              <ListingCard {...listing} />
+              {/* <ListingCard {...listing} /> */}
+              <VideoListingCard {...listing} />
             </Grid>
           );
         })}

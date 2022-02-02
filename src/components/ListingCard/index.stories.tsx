@@ -20,8 +20,8 @@ const Template: ComponentStory<typeof ListingCard> = (
   </Grid>
 );
 
-export const Airbnb = Template.bind({});
-Airbnb.args = {
+export const RealEstate = Template.bind({});
+RealEstate.args = {
   // price: 120000,
   // propertyType: "house",
   // beds: 3,

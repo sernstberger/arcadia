@@ -18,7 +18,7 @@ export interface ListingCardProps {
   image: string;
   emphasis?: React.ReactNode;
   details?: React.ReactNode;
-  href?: string;
+  href: string;
   leftAction?: any;
   rightAction?: any;
 }
@@ -32,13 +32,14 @@ const ListingCard = ({
   subtitle = undefined,
   leftAction = undefined,
   rightAction = undefined,
+  href,
 }: ListingCardProps) => {
   console.log("!!!", title, subtitle, typeof subtitle);
   return (
     <Card sx={{ position: "relative" }}>
       <CardActionArea
         component={Link}
-        to="/"
+        to={href}
         sx={{ height: "100%", width: "100%", position: "absolute" }}
       />
       <CardMedia {...{ image }} component="img" height="140" alt={title} />
