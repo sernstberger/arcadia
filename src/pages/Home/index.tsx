@@ -15,6 +15,7 @@ const Home = () => {
       <ul>
         {[
           { title: "Real Estate", href: "/real-estate" },
+          { title: "Rental Properties", href: "#" },
           // { title: "Twitter", href: "/twitter" },
           // { title: "GitHub", href: "/github" },
           // { title: "Slack", href: "/slack" },
@@ -23,10 +24,10 @@ const Home = () => {
           // { title: "Google", href: "/google" },
           { title: "Videos", href: "/videos" },
           // { title: "Netflix", href: "/netflix" },
-          // { title: "Spotify", href: "/spotify" },
-          // { title: "Amazon", href: "/amazon" },
+          { title: "Music", href: "#" },
+          { title: "Shopping", href: "#" },
           // { title: "Uber", href: "/uber" },
-          // { title: "Gmail", href: "/gmail" },
+          { title: "Email", href: "#" },
           // { title: "Etsy", href: "/etsy" },
           // { title: "Doordash", href: "/doordash" },
           // { title: "Zillow", href: "/zillow" },
@@ -48,10 +49,14 @@ const Home = () => {
         <li>React</li>
         <li>Mui</li>
         <li>Typescript</li>
-        {/* <li>Jest</li> */}
-        {/* <li>Storybook</li> */}
-        {/* <li>React Testing Library</li> */}
+        <li>Jest</li>
+        <li>Storybook</li>
+        <li>React Testing Library</li>
         <li>React Router</li>
+        <li>DateFns</li>
+        <li>Axios</li>
+        <li>json-server</li>
+        {/* <li>Redux</li> */}
         {/* <li>React Hook Form</li> */}
       </ul>
     </div>
