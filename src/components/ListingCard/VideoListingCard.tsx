@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import ListingCard from ".";
+import { formatDistanceToNow, parseISO } from "date-fns";
 
 export interface VideoListingCardProps {
   id: string | number;
@@ -26,7 +27,7 @@ export interface VideoListingCardProps {
   rightAction?: any;
   user: { id: string; name: string; avatar: string };
   views: number;
-  createDate: Date;
+  createDate: string;
 }
 
 const VideoListingCard = ({
@@ -41,6 +42,7 @@ const VideoListingCard = ({
   user,
   createDate,
 }: VideoListingCardProps) => {
+  console.log("!!!", createDate, typeof createDate);
   return (
     <ListingCard
       title={title}
@@ -48,7 +50,7 @@ const VideoListingCard = ({
       subtitle={<Typography variant="body2">{user.name}</Typography>}
       details={
         <Typography variant="body2">
-          {views} views &bull; {createDate} days ago
+          {views} views &bull; {formatDistanceToNow(parseISO(createDate))} ago
         </Typography>
       }
       leftAction={<Avatar alt={user.name} src={user.avatar} />}

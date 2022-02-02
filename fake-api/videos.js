@@ -1,6 +1,6 @@
 const faker = require("faker");
 
-const videos = [...Array(50)].map((_, i) => {
+const videos = [...Array(500)].map((_, i) => {
   const id = i;
   const title = faker.lorem.sentence();
   const image =
@@ -10,7 +10,7 @@ const videos = [...Array(50)].map((_, i) => {
     name: faker.internet.userName(),
     avatar: faker.image.imageUrl(),
   };
-  const createDate = faker.date.recent();
+  const createDate = faker.date.past();
   const updateDate = faker.date.recent();
   const views = faker.random.number();
   // const sessionCount = faker.random.number({

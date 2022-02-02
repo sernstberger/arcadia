@@ -8,7 +8,7 @@ export interface ListingsProps {
   listingsPerPage?: number;
 }
 const Listings = ({ items, listingsPerPage = 24 }: ListingsProps) => {
-  const numberOfPages = items.length / listingsPerPage;
+  const numberOfPages = Math.ceil(items.length / listingsPerPage);
   const initialItems = items.slice(0, listingsPerPage);
   const [shownItems, setShownItems] = useState(initialItems);
   const [page, setPage] = useState(1);
