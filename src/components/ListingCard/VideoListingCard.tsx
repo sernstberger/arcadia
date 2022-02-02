@@ -24,7 +24,9 @@ export interface VideoListingCardProps {
   details?: React.ReactNode;
   leftAction?: any;
   rightAction?: any;
-  user: string;
+  user: { id: string; name: string; avatar: string };
+  views: number;
+  createDate: Date;
 }
 
 const VideoListingCard = ({
@@ -32,23 +34,25 @@ const VideoListingCard = ({
   title,
   details,
   image,
+  views,
   emphasis,
   children,
   subtitle = undefined,
-  leftAction = undefined,
-  rightAction = undefined,
   user,
+  createDate,
 }: VideoListingCardProps) => {
   return (
     <ListingCard
       title={title}
       image={image}
-      subtitle={<Typography variant="body2">Firething</Typography>}
+      subtitle={<Typography variant="body2">{user.name}</Typography>}
       details={
-        <Typography variant="body2">1222 views &bull; 5 days ago</Typography>
+        <Typography variant="body2">
+          {views} views &bull; {createDate} days ago
+        </Typography>
       }
-      leftAction={<Avatar alt={user} src="/static/images/avatar/1.jpg" />}
-      rightAction={<MoreVert />}
+      leftAction={<Avatar alt={user.name} src={user.avatar} />}
+      // rightAction={<MoreVert />}
       href={`/videos/${id}`}
     />
   );
