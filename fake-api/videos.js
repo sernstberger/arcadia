@@ -1,8 +1,22 @@
 const faker = require("faker");
 
+const comments = [...Array(500)].map((_, i) => {
+  const user = {
+    id: 1,
+    name: faker.internet.userName(),
+    avatar: faker.image.imageUrl(),
+  };
+  const createDate = faker.date.past();
+
+  return {
+    id: i,
+    comment: faker.lorem.sentences(),
+    user,
+    createDate,
+  };
+});
+
 const videos = [...Array(500)].map((_, i) => {
-  const id = i;
-  const title = faker.lorem.sentence();
   const image =
     "https://images.unsplash.com/photo-1643061493163-e50ef8dec4cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80";
   const user = {
@@ -21,14 +35,15 @@ const videos = [...Array(500)].map((_, i) => {
   // const sessionCount = 1
 
   return {
-    id,
-    title,
+    id: i,
+    title: faker.lorem.sentence(),
     image,
     user,
     views,
     createDate,
     updateDate,
     subscribed,
+    comments,
   };
 });
 

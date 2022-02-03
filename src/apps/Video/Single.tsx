@@ -3,20 +3,19 @@ import {
   Avatar,
   Box,
   Button,
-  Container,
   Divider,
   Grid,
   Stack,
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import { VideoProps } from "./types";
+import { CommentsProps, VideoProps } from "./types";
 import { useParams } from "react-router-dom";
+import Comment from "../../components/Comment";
 
 const Single = () => {
   const [video, setVideo] = useState<VideoProps>();
   const { id } = useParams();
-  console.log("id", id);
   useEffect(() => {
     axios
       .get(`http://localhost:3001/videos/${id}`)
@@ -65,7 +64,7 @@ const Single = () => {
           </div>
           <Box padding={3}>
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={9}>
+              <Grid item xs={12} sm={8}>
                 <Typography variant="h1">{video.title}</Typography>
                 <Stack direction="row">
                   {video.views} views /date
@@ -99,9 +98,11 @@ const Single = () => {
                   </div>
                 </Stack>
                 <Divider />
-                comments
+                {video.comments!.map((comment: CommentsProps) => {
+                  return <Comment {...comment} />;
+                })}
               </Grid>
-              <Grid item xs={12} sm={3}>
+              <Grid item xs={12} sm={4}>
                 adfasdf
               </Grid>
             </Grid>
