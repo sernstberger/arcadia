@@ -13,6 +13,7 @@ import { Link } from "react-router-dom";
 import ListingCard from ".";
 import { formatDistanceToNow, parseISO } from "date-fns";
 import { VideoProps } from "../../apps/Video/types";
+import { timeAgo } from "../../utils";
 
 const VideoListingCard = ({
   id,
@@ -31,7 +32,7 @@ const VideoListingCard = ({
       subtitle={<Typography variant="body2">{user.name}</Typography>}
       details={
         <Typography variant="body2">
-          {views} views &bull; {formatDistanceToNow(parseISO(createDate))} ago
+          {views} views &bull; {timeAgo(createDate)}
         </Typography>
       }
       leftAction={<Avatar alt={user.name} src={user.avatar} />}

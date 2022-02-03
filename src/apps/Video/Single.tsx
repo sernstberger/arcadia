@@ -9,9 +9,10 @@ import {
   Typography,
 } from "@mui/material";
 import axios from "axios";
-import { CommentsProps, VideoProps } from "./types";
+import { VideoProps } from "./types";
 import { useParams } from "react-router-dom";
 import Comment from "../../components/Comment";
+import { CommentProps } from "../../components/Comment/types";
 
 const Single = () => {
   const [video, setVideo] = useState<VideoProps>();
@@ -98,8 +99,8 @@ const Single = () => {
                   </div>
                 </Stack>
                 <Divider />
-                {video.comments!.map((comment: CommentsProps) => {
-                  return <Comment {...comment} />;
+                {video.comments!.map((comment: CommentProps) => {
+                  return <Comment {...comment} upvoteEnabled downvoteEnabled />;
                 })}
               </Grid>
               <Grid item xs={12} sm={4}>
