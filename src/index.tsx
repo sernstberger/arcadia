@@ -9,29 +9,26 @@ import RealEstate from "./apps/RealEstate";
 import Home from "./pages/Home";
 import Video from "./apps/Video";
 import Single from "./apps/Video/Single";
+import { default as VideoHome } from "./apps/Video/Home";
 
 ReactDOM.render(
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-          <Route index element={<Home />} />
-          <Route path="real-estate" element={<RealEstate />}>
-            {/* <Route path=":teamId" element={<Team />} />
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
+        <Route path="real-estate" element={<RealEstate />}>
+          {/* <Route path=":teamId" element={<Team />} />
             <Route path="new" element={<NewTeamForm />} />
             <Route index element={<LeagueStandings />} /> */}
-          </Route>
-          {/* <Route path="videos" element={<Video />}> */}
-          <Route path="videos">
-            <Route path=":id" element={<Single />} />
-            {/* <Route path="new" element={<NewTeamForm />} /> */}
-            <Route index element={<Video />} />
-          </Route>
         </Route>
-      </Routes>
-    </BrowserRouter>
-  </ThemeProvider>,
+        {/* <Route path="videos" element={<Video />}> */}
+        <Route path="videos" element={<Video />}>
+          <Route path=":id" element={<Single />} />
+          {/* <Route path="new" element={<NewTeamForm />} /> */}
+          <Route index element={<VideoHome />} />
+        </Route>
+      </Route>
+    </Routes>
+  </BrowserRouter>,
   document.querySelector("#root")
 );
