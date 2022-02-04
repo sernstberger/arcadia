@@ -1,9 +1,13 @@
 const faker = require("faker");
 const { users } = require("./users");
 
-const comments = (count) =>
+const comments = (count, isReply = false) =>
   [...Array(count)].map((_, i) => {
     const createDate = faker.date.past();
+    const hasReplies = faker.datatype.boolean();
+    const numberOfReplies = hasReplies
+      ? faker.datatype.number({ min: 1, max: 20 })
+      : 0;
 
     return {
       id: i,
@@ -15,6 +19,8 @@ const comments = (count) =>
         })
       ],
       createDate,
+      isReply,
+      replies: isReply ? undefined : comments(numberOfReplies, true),
     };
   });
 
