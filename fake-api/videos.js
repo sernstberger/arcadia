@@ -1,20 +1,5 @@
 const faker = require("faker");
-
-const comments = [...Array(500)].map((_, i) => {
-  const user = {
-    id: 1,
-    name: faker.internet.userName(),
-    avatar: faker.image.imageUrl(),
-  };
-  const createDate = faker.date.past();
-
-  return {
-    id: i,
-    comment: faker.lorem.sentences(),
-    user,
-    createDate,
-  };
-});
+const { comments } = require("./comments");
 
 const videos = [...Array(500)].map((_, i) => {
   const image =
@@ -43,7 +28,14 @@ const videos = [...Array(500)].map((_, i) => {
     createDate,
     updateDate,
     subscribed,
-    comments,
+    comments: comments(
+      faker.random.boolean()
+        ? faker.datatype.number({
+            min: 0,
+            max: 50,
+          })
+        : 0
+    ),
   };
 });
 

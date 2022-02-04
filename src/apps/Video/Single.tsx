@@ -37,7 +37,7 @@ const Single = () => {
     <div>
       {video ? (
         <div>
-          This looks exactly like Video.
+          This looks exactly like YouTube.
           <div
             style={{
               position: "relative",
@@ -99,9 +99,18 @@ const Single = () => {
                   </div>
                 </Stack>
                 <Divider />
-                {video.comments!.map((comment: CommentProps) => {
-                  return <Comment {...comment} upvoteEnabled downvoteEnabled />;
-                })}
+                {video.comments?.length ? (
+                  video.comments.map((comment: CommentProps) => {
+                    return (
+                      <Comment {...comment} upvoteEnabled downvoteEnabled />
+                    );
+                  })
+                ) : (
+                  <>
+                    <Typography>0 comments</Typography>
+                    add comment here
+                  </>
+                )}
               </Grid>
               <Grid item xs={12} sm={4}>
                 adfasdf
