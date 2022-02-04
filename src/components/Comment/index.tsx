@@ -5,12 +5,13 @@ import {
   Button,
   IconButton,
   Stack,
-  TextField,
   Typography,
   ToggleButton,
   Collapse,
 } from "@mui/material";
 import {
+  ArrowDropDown,
+  ArrowDropUp,
   ThumbDownAlt,
   ThumbDownOffAlt,
   ThumbUpAlt,
@@ -18,6 +19,7 @@ import {
 } from "@mui/icons-material";
 import { timeAgo } from "../../utils";
 import { CommentProps } from "./types";
+import ReplyForm from "./ReplyForm";
 
 export interface CommentComponentProps extends CommentProps {
   upvoteEnabled?: boolean;
@@ -75,29 +77,17 @@ const Comment = ({
                 {rating === "dislike" ? <ThumbDownAlt /> : <ThumbDownOffAlt />}
               </IconButton>
             )}
-
             <Button onClick={() => setReplying(true)} disabled={replying}>
               Reply
             </Button>
           </Stack>
-          {replying && (
-            <div>
-              <TextField label="Add a public reply..." />
-              <Stack direction="row" justifyContent="space-between">
-                emojis
-                <div>
-                  <Button onClick={() => setReplying(false)}>Cancel</Button>
-                  <Button variant="contained">Reply</Button>
-                </div>
-              </Stack>
-            </div>
-          )}
+          <ReplyForm id={1} open={replying} setOpen={setReplying} />
         </div>
       </Stack>
       {replies && replies?.length > 0 && (
         <>
           <Button
-            variant="contained"
+            startIcon={showReplies ? <ArrowDropUp /> : <ArrowDropDown />}
             onClick={() => setShowReplies(!showReplies)}
           >
             {showReplies ? "Hide" : "Show"} {replies.length} replies
