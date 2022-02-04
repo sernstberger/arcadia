@@ -7,6 +7,7 @@ import {
   Stack,
   TextField,
   Typography,
+  ToggleButton,
 } from "@mui/material";
 import {
   ThumbDownAlt,
@@ -29,8 +30,11 @@ const Comment = ({
   replies,
   upvoteEnabled = false,
   downvoteEnabled = false,
+  rating: defaultRating = null,
 }: CommentComponentProps) => {
   const [replying, setReplying] = useState<boolean>(false);
+  const [rating, setRating] =
+    useState<"like" | "dislike" | null>(defaultRating);
 
   return (
     <div>
@@ -44,17 +48,29 @@ const Comment = ({
           <Stack direction="row">
             {upvoteEnabled && (
               <Stack direction="row">
-                <IconButton>
-                  <ThumbUpAlt />
-                  <ThumbUpOffAlt />
+                <IconButton
+                  value="check"
+                  component={ToggleButton}
+                  selected={rating === "like"}
+                  onChange={() => {
+                    setRating(rating === "like" ? null : "like");
+                  }}
+                >
+                  {rating === "like" ? <ThumbUpAlt /> : <ThumbUpOffAlt />}
                 </IconButton>
                 <Typography>511</Typography>
               </Stack>
             )}
             {downvoteEnabled && (
-              <IconButton>
-                <ThumbDownOffAlt />
-                <ThumbDownAlt />
+              <IconButton
+                value="check"
+                component={ToggleButton}
+                selected={rating === "dislike"}
+                onChange={() => {
+                  setRating(rating === "dislike" ? null : "dislike");
+                }}
+              >
+                {rating === "dislike" ? <ThumbDownAlt /> : <ThumbDownOffAlt />}
               </IconButton>
             )}
 
@@ -76,14 +92,12 @@ const Comment = ({
           )}
         </div>
       </Stack>
-      {replies ? (
+      {replies && (
         <Box marginLeft={7}>
           {replies.map((reply: CommentProps) => {
             return <Comment {...reply} />;
           })}
         </Box>
-      ) : (
-        <div>no replies</div>
       )}
     </div>
   );
