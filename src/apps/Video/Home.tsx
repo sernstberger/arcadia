@@ -5,6 +5,7 @@ import { createTheme, Typography } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
+import VideoListingCard from "../../components/ListingCard/VideoListingCard";
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -27,7 +28,7 @@ const Home = () => {
   return (
     <div>
       <Typography>This looks exactly like Video.</Typography>
-      <Listings items={items} variant="youtube" />
+      <Listings items={items} CardComponent={VideoListingCard} />
     </div>
   );
 };

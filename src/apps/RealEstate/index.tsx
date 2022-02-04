@@ -3,6 +3,7 @@ import Listings from "../../components/Listings";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
+import ListingCard from "../../components/ListingCard";
 
 const themeOverrides: ThemeOptions = {
   palette: {
@@ -28,7 +29,7 @@ const Airbnb = () => {
 
       <Typography>This looks exactly like Airbnb.</Typography>
       <Listings
-        variant="airbnb"
+        CardComponent={ListingCard}
         items={[
           {
             title: "coooooool",

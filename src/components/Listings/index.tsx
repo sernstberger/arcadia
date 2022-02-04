@@ -5,10 +5,14 @@ import VideoListingCard from "../ListingCard/VideoListingCard";
 
 export interface ListingsProps {
   items: ListingCardProps[];
+  CardComponent: any;
   listingsPerPage?: number;
-  variant?: "airbnb" | "youtube" | "default";
 }
-const Listings = ({ items, listingsPerPage = 24, variant }: ListingsProps) => {
+const Listings = ({
+  items,
+  listingsPerPage = 24,
+  CardComponent,
+}: ListingsProps) => {
   const numberOfPages = Math.ceil(items.length / listingsPerPage);
   const initialItems = items.slice(0, listingsPerPage);
   const [shownItems, setShownItems] = useState(initialItems);
@@ -16,8 +20,6 @@ const Listings = ({ items, listingsPerPage = 24, variant }: ListingsProps) => {
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
   };
-
-  const Foo = variant === "youtube" ? VideoListingCard : ListingCard;
 
   useEffect(() => {
     const start = (page - 1) * listingsPerPage;
@@ -32,7 +34,7 @@ const Listings = ({ items, listingsPerPage = 24, variant }: ListingsProps) => {
           // TODO: fix any type
           return (
             <Grid item xs={12} sm={6} md={4} lg={3} key={listing.title}>
-              <Foo {...listing} />
+              <CardComponent {...listing} />
             </Grid>
           );
         })}
