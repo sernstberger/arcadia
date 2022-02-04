@@ -8,6 +8,7 @@ import {
   TextField,
   Typography,
   ToggleButton,
+  Collapse,
 } from "@mui/material";
 import {
   ThumbDownAlt,
@@ -35,6 +36,7 @@ const Comment = ({
   const [replying, setReplying] = useState<boolean>(false);
   const [rating, setRating] =
     useState<"like" | "dislike" | null>(defaultRating);
+  const [showReplies, setShowReplies] = useState<boolean>(false);
 
   return (
     <div>
@@ -92,12 +94,22 @@ const Comment = ({
           )}
         </div>
       </Stack>
-      {replies && (
-        <Box marginLeft={7}>
-          {replies.map((reply: CommentProps) => {
-            return <Comment {...reply} />;
-          })}
-        </Box>
+      {replies && replies?.length > 0 && (
+        <>
+          <Button
+            variant="contained"
+            onClick={() => setShowReplies(!showReplies)}
+          >
+            {showReplies ? "Hide" : "Show"} {replies.length} replies
+          </Button>
+          <Collapse in={showReplies}>
+            <Box marginLeft={7}>
+              {replies.map((reply: CommentProps) => {
+                return <Comment {...reply} />;
+              })}
+            </Box>
+          </Collapse>
+        </>
       )}
     </div>
   );
