@@ -32,7 +32,7 @@ const videos = [...Array(500)].map((_, i) => {
       faker.datatype.boolean()
         ? faker.datatype.number({
             min: 0,
-            max: 500,
+            max: 50,
           })
         : 0
     ),

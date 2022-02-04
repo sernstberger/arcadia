@@ -1,6 +1,6 @@
 const faker = require("faker");
 
-const users = [...Array(500)].map((_, i) => {
+const users = [...Array(50)].map((_, i) => {
   return {
     id: i,
     name: faker.internet.userName(),

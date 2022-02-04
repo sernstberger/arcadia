@@ -15,7 +15,7 @@ const comments = (count, isReply = false) =>
       user: users[
         faker.datatype.number({
           min: 0,
-          max: 499,
+          max: 49,
         })
       ],
       createDate,
