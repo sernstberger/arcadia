@@ -58,7 +58,7 @@ const Comment = ({
             <Collapse in={showReplies}>
               <Box marginBottom={3}>
                 {replies.map((reply: CommentProps) => {
-                  return <Comment {...reply} />;
+                  return <Comment key={reply.createDate} {...reply} />;
                 })}
               </Box>
             </Collapse>

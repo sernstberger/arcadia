@@ -20,9 +20,9 @@ const Rating = ({
   setRating,
 }: RatingProps) => {
   return (
-    <Stack direction="row">
+    <Stack direction="row" spacing={2}>
       {upvoteEnabled && (
-        <Stack direction="row">
+        <Stack direction="row" alignItems="center">
           <IconButton
             value="check"
             component={ToggleButton}

@@ -28,6 +28,7 @@ const videos = [...Array(500)].map((_, i) => {
     createDate,
     updateDate,
     subscribed,
+    description: faker.lorem.paragraphs(),
     comments: comments(
       faker.datatype.boolean()
         ? faker.datatype.number({

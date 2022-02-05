@@ -70,6 +70,9 @@ const baseTheme = createTheme({
         sizeLarge: {
           padding: "1rem 2rem",
         },
+        textSizeMedium: {
+          padding: "0.5rem ",
+        },
       },
       defaultProps: {
         disableElevation: true,
