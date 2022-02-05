@@ -20,6 +20,9 @@ const comments = (count, isReply = false) =>
       ],
       createDate,
       isReply,
+      upvoteCount: faker.datatype.boolean()
+        ? faker.datatype.number({ min: 0, max: 1000 })
+        : 0,
       replies: isReply ? undefined : comments(numberOfReplies, true),
     };
   });

@@ -6,10 +6,13 @@ interface ConnectedTextFieldProps
   fieldName: string;
 }
 
-const ConnectedTextField = ({ fieldName }: ConnectedTextFieldProps) => {
+const ConnectedTextField = ({
+  fieldName,
+  ...rest
+}: ConnectedTextFieldProps) => {
   const { register } = useFormContext(); // retrieve all hook methods
 
-  return <TextField {...register(fieldName)} label="Add a public reply..." />;
+  return <TextField {...register(fieldName)} {...rest} />;
 };
 
 export default ConnectedTextField;

@@ -40,7 +40,7 @@ const baseTheme = createTheme({
     },
     button: {
       fontSize: "1rem",
-      textTransform: "none",
+      // textTransform: "none",
       fontWeight: 700,
       lineHeight: 1.5,
     },

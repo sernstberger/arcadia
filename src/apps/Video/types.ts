@@ -1,7 +1,7 @@
 import { CommentProps } from "../../components/Comment/types";
 
 export interface VideoProps {
-  id: string | number;
+  id: number;
   title: string;
   image: string;
   description: string;

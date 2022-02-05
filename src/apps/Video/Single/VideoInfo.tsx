@@ -104,7 +104,7 @@ const VideoInfo = ({
       <Box paddingLeft={8} paddingTop={2}>
         {description}
       </Box>
-      <Divider />
+      <Divider sx={{ marginY: 2 }} />
     </Box>
   );
 };

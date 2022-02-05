@@ -6,6 +6,7 @@ import {
   Stack,
   Typography,
   Collapse,
+  Divider,
 } from "@mui/material";
 import { ArrowDropDown, ArrowDropUp } from "@mui/icons-material";
 import { timeAgo } from "../../utils";
@@ -19,10 +20,12 @@ export interface CommentComponentProps extends CommentProps {
 }
 
 const Comment = ({
+  id,
   user,
   comment,
   createDate,
   replies,
+  upvoteCount = 0,
   upvoteEnabled = false,
   downvoteEnabled = false,
   rating: defaultRating = null,
@@ -33,44 +36,55 @@ const Comment = ({
   const [showReplies, setShowReplies] = useState<boolean>(false);
 
   return (
-    <Stack direction="row" spacing={2}>
-      <Avatar src={user.avatar} />
-      <div>
-        <Typography>
-          <strong>{user.name}</strong> {timeAgo(createDate)}
-        </Typography>
-        <Typography>{comment}</Typography>
-        <Stack direction="row">
-          <Rating {...{ upvoteEnabled, downvoteEnabled, rating, setRating }} />
-          <Button
-            onClick={() => setReplying(true)}
-            disabled={replying}
-            size="small"
-            color="inherit"
-          >
-            Reply
-          </Button>
-        </Stack>
-        <ReplyForm id={1} open={replying} setOpen={setReplying} />
-        {replies && replies?.length > 0 && (
-          <>
+    <>
+      <Stack direction="row" spacing={2} sx={{ marginY: 2 }}>
+        <Avatar src={user.avatar} />
+        <div>
+          <Typography variant="body2">
+            <strong>{user.name}</strong> {timeAgo(createDate)}
+          </Typography>
+          <Typography>{comment}</Typography>
+          <Stack direction="row">
+            <Rating
+              {...{
+                upvoteEnabled,
+                downvoteEnabled,
+                rating,
+                setRating,
+                upvoteCount,
+              }}
+              size="small"
+            />
             <Button
-              startIcon={showReplies ? <ArrowDropUp /> : <ArrowDropDown />}
-              onClick={() => setShowReplies(!showReplies)}
+              onClick={() => setReplying(true)}
+              disabled={replying}
+              size="small"
+              color="inherit"
             >
-              {showReplies ? "Hide" : "Show"} {replies.length} replies
+              Reply
             </Button>
-            <Collapse in={showReplies}>
-              <Box marginBottom={3}>
-                {replies.map((reply: CommentProps) => {
-                  return <Comment key={reply.createDate} {...reply} />;
-                })}
-              </Box>
-            </Collapse>
-          </>
-        )}
-      </div>
-    </Stack>
+          </Stack>
+          <ReplyForm id={id} open={replying} setOpen={setReplying} />
+          {replies && replies?.length > 0 && (
+            <>
+              <Button
+                startIcon={showReplies ? <ArrowDropUp /> : <ArrowDropDown />}
+                onClick={() => setShowReplies(!showReplies)}
+              >
+                {showReplies ? "Hide" : "Show"} {replies.length} replies
+              </Button>
+              <Collapse in={showReplies}>
+                <Box marginBottom={3}>
+                  {replies.map((reply: CommentProps) => {
+                    return <Comment key={reply.createDate} {...reply} />;
+                  })}
+                </Box>
+              </Collapse>
+            </>
+          )}
+        </div>
+      </Stack>
+    </>
   );
 };
 

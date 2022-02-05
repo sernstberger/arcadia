@@ -57,6 +57,7 @@ Youtube.args = {
 
   replies: [
     {
+      id: 1,
       comment:
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum delectus quis unde impedit fugit sapiente dolorum error, necessitatibus, culpa praesentium recusandae iste animi qui officia aspernatur! Labore dolores rem hic.",
       user: {
