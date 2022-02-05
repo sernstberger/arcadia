@@ -42,7 +42,12 @@ const Comment = ({
         <Typography>{comment}</Typography>
         <Stack direction="row">
           <Rating {...{ upvoteEnabled, downvoteEnabled, rating, setRating }} />
-          <Button onClick={() => setReplying(true)} disabled={replying}>
+          <Button
+            onClick={() => setReplying(true)}
+            disabled={replying}
+            size="small"
+            color="inherit"
+          >
             Reply
           </Button>
         </Stack>

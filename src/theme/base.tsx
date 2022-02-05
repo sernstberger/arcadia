@@ -65,7 +65,7 @@ const baseTheme = createTheme({
           borderRadius: 50,
         },
         sizeMedium: {
-          padding: "0.5rem 1.5rem",
+          padding: "0.625rem 1rem",
         },
         sizeLarge: {
           padding: "1rem 2rem",

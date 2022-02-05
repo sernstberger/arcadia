@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "@hookform/devtools": "^4.0.2",
     "@mui/icons-material": "^5.3.1",
     "@mui/material": "latest",
     "@types/react": "latest",
@@ -13,6 +14,7 @@
     "date-fns": "^2.28.0",
     "react": "latest",
     "react-dom": "latest",
+    "react-hook-form": "^7.26.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "latest",
     "typescript": "latest"
