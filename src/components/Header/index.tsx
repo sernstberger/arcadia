@@ -14,7 +14,7 @@ import ConnectedSearch from "../ConnectedForm/ConnectedSearch";
 export default function Header() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="fixed" elevation={0}>
         <Toolbar>
           <IconButton
             size="large"
@@ -54,9 +54,8 @@ export default function Header() {
                 <NotificationsIcon />
               </Badge>
             </IconButton>
-
-            <AccountMenu />
           </Box>
+          <AccountMenu />
         </Toolbar>
       </AppBar>
     </Box>
