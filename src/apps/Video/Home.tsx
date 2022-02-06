@@ -27,7 +27,6 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Typography>This looks exactly like Video.</Typography>
       <Listings items={items} CardComponent={VideoListingCard} />
     </div>
   );

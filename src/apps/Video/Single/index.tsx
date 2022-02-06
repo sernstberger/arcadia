@@ -53,7 +53,6 @@ const Single = () => {
     <div>
       {video ? (
         <div>
-          This looks exactly like YouTube.
           <div
             style={{
               position: "relative",

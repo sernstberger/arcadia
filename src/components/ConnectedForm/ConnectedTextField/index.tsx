@@ -12,7 +12,7 @@ const ConnectedTextField = ({
 }: ConnectedTextFieldProps) => {
   const { register } = useFormContext(); // retrieve all hook methods
 
-  return <TextField {...register(fieldName)} {...rest} />;
+  return <TextField {...register(fieldName)} {...rest} hiddenLabel />;
 };
 
 export default ConnectedTextField;

@@ -16,7 +16,9 @@ const ReplyForm = ({ id, open, setOpen }: ReplyFormProps) => {
       <ConnectedForm onSubmit={(data: any) => console.log(data)}>
         <ConnectedTextField
           fieldName={`${id}Reply`}
-          label="Add a public reply..."
+          label="Reply"
+          hiddenLabel
+          placeholder="Add a public reply..."
         />
 
         <Stack
