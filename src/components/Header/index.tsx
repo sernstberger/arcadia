@@ -11,10 +11,10 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountMenu from "../AccountMenu";
 import ConnectedSearch from "../ConnectedForm/ConnectedSearch";
 
-export default function Header() {
+export default function Header({ position = "static" }: any) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="fixed" elevation={0}>
+      <AppBar {...{ position }} elevation={0}>
         <Toolbar>
           <IconButton
             size="large"

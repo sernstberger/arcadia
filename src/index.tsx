@@ -1,15 +1,14 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
-import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@mui/material/styles";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
-import theme from "./theme";
 import RealEstate from "./apps/RealEstate";
 import Home from "./pages/Home";
+import Store from "./apps/Store";
 import Video from "./apps/Video";
 import Single from "./apps/Video/Single";
 import { default as VideoHome } from "./apps/Video/Home";
+import { default as StoreHome } from "./apps/Store/Home";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -21,12 +20,18 @@ ReactDOM.render(
             <Route path="new" element={<NewTeamForm />} />
             <Route index element={<LeagueStandings />} /> */}
         </Route>
-        {/* <Route path="videos" element={<Video />}> */}
         <Route path="videos" element={<Video />}>
           <Route path=":id" element={<Single />} />
           {/* <Route path="new" element={<NewTeamForm />} /> */}
           <Route index element={<VideoHome />} />
         </Route>
+      </Route>
+
+      <Route path="store" element={<Store />}>
+        {/* <Route path=":teamId" element={<Team />} />
+            <Route path="new" element={<NewTeamForm />} />
+            <Route index element={<LeagueStandings />} /> */}
+        <Route index element={<StoreHome />} />
       </Route>
     </Routes>
   </BrowserRouter>,

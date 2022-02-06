@@ -1,27 +1,35 @@
-import { Typography } from "@mui/material";
-import ListingCard from "../../components/ListingCard";
-import Listings from "../../components/Listings";
+import { ThemeOptions } from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "../../theme";
+import { Outlet } from "react-router-dom";
+import Header from "../../components/Header";
 
-const Airbnb = () => {
+const themeOverrides: ThemeOptions = {
+  palette: {
+    primary: {
+      main: "#7F187F",
+    },
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          borderRadius: 2,
+        },
+      },
+    },
+  },
+};
+
+const Store = () => {
   return (
-    <div>
-      <Typography>This looks exactly like Airbnb.</Typography>
-      <Listings
-        CardComponent={ListingCard}
-        items={[
-          {
-            title: "coooooool",
-            image:
-              "https://images.unsplash.com/photo-1643061493163-e50ef8dec4cd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3024&q=80",
-            emphasis: "ahhhhh",
-            details: "tails",
-            href: "/",
-            leftAction: "secondary",
-          },
-        ]}
-      />
-    </div>
+    <ThemeProvider theme={theme(themeOverrides)}>
+      <CssBaseline />
+      <Header />
+      <Outlet />
+    </ThemeProvider>
   );
 };
 
-export default Airbnb;
+export default Store;

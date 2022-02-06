@@ -1,7 +1,4 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Listings from "../../components/Listings";
-import { createTheme, ThemeOptions, Typography } from "@mui/material";
+import { ThemeOptions } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
@@ -29,7 +26,7 @@ const Video = () => {
   return (
     <ThemeProvider theme={theme(themeOverrides)}>
       <CssBaseline />
-      <Header />
+      <Header position="fixed" />
       <Outlet />
     </ThemeProvider>
   );

@@ -15,7 +15,7 @@ const Home = () => {
       <ul>
         {[
           { title: "Real Estate", href: "/real-estate" },
-          { title: "Rental Properties", href: "#" },
+          // { title: "Rental Properties", href: "#" },
           // { title: "Twitter", href: "/twitter" },
           // { title: "GitHub", href: "/github" },
           // { title: "Slack", href: "/slack" },
@@ -24,10 +24,10 @@ const Home = () => {
           // { title: "Google", href: "/google" },
           { title: "Videos", href: "/videos" },
           // { title: "Netflix", href: "/netflix" },
-          { title: "Music", href: "#" },
-          { title: "Shopping", href: "#" },
+          // { title: "Music", href: "#" },
+          { title: "Store", href: "/store" },
           // { title: "Uber", href: "/uber" },
-          { title: "Email", href: "#" },
+          // { title: "Email", href: "#" },
           // { title: "Etsy", href: "/etsy" },
           // { title: "Doordash", href: "/doordash" },
           // { title: "Zillow", href: "/zillow" },
