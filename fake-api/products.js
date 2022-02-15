@@ -14,7 +14,7 @@ const products = [...Array(500)].map((_, i) => {
     price,
     createDate,
     updateDate,
-    rating: faker.random.number({ min: 1, max: 5 }),
+    rating: faker.datatype.number({ min: 1, max: 5 }),
     description: faker.lorem.paragraphs(),
     comments: comments(
       faker.datatype.boolean()

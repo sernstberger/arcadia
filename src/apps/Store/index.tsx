@@ -4,6 +4,8 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
 import { Outlet } from "react-router-dom";
 import Header from "../../components/Header";
+import Layout from "../../components/Layout";
+import MenuContent from "./MenuContent";
 
 const themeOverrides: ThemeOptions = {
   palette: {
@@ -26,8 +28,9 @@ const Store = () => {
   return (
     <ThemeProvider theme={theme(themeOverrides)}>
       <CssBaseline />
-      <Header />
-      <Outlet />
+      <Layout menuContent={<MenuContent />}>
+        <Outlet />
+      </Layout>
     </ThemeProvider>
   );
 };

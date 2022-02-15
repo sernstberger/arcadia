@@ -10,13 +10,23 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountMenu from "../AccountMenu";
 import ConnectedSearch from "../ConnectedForm/ConnectedSearch";
+import Logo from "../Logo";
 
-export default function Header({ position = "static" }: any) {
+export default function Header({
+  drawerOpen,
+  drawerClose,
+  position = "static",
+}: any) {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar {...{ position }} elevation={0}>
+      <AppBar
+        // {...{ position }}
+        position="fixed"
+        elevation={0}
+      >
         <Toolbar>
           <IconButton
+            onClick={drawerOpen}
             size="large"
             edge="start"
             color="inherit"
@@ -25,14 +35,7 @@ export default function Header({ position = "static" }: any) {
           >
             <MenuIcon />
           </IconButton>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            MUI
-          </Typography>
+          <Logo />
           <ConnectedSearch />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
