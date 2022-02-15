@@ -3,7 +3,6 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../../theme";
 import { Outlet } from "react-router-dom";
-import Header from "../../components/Header";
 import Layout from "../../components/Layout";
 import MenuContent from "./MenuContent";
 

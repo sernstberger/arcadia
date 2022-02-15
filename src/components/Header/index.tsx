@@ -3,7 +3,6 @@ import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
 import Badge from "@mui/material/Badge";
 import MenuIcon from "@mui/icons-material/Menu";
 import MailIcon from "@mui/icons-material/Mail";
@@ -11,6 +10,7 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountMenu from "../AccountMenu";
 import ConnectedSearch from "../ConnectedForm/ConnectedSearch";
 import Logo from "../Logo";
+import { YouTube } from "@mui/icons-material";
 
 export default function Header({
   drawerOpen,
@@ -35,7 +35,7 @@ export default function Header({
           >
             <MenuIcon />
           </IconButton>
-          <Logo />
+          <Logo to="/" logo={<YouTube fontSize="large" />} />
           <ConnectedSearch />
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
